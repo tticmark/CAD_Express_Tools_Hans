@@ -27,7 +27,7 @@ jobs:
         run: dotnet publish src/CAD_ET_HANS.App/CAD_ET_HANS.App.csproj -c Release -o publish-app
 
       - name: Zip
-        run: Compress-Archive -Path publish-app\* -DestinationPath CAD_ET_HANS.zip
+        run: Compress-Archive -Path publish-app/* -DestinationPath CAD_ET_HANS.zip
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
