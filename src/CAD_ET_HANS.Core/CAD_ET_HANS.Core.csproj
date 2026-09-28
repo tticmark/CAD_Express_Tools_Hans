@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CAD_ET_HANS.Core</RootNamespace>
+    <AssemblyName>CAD_ET_HANS.Core</AssemblyName>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dictionary.cuix.json" />
+    <EmbeddedResource Include="Resources\dictionary.dcl.json" />
+    <EmbeddedResource Include="Resources\dictionary.lsp.json" />
+  </ItemGroup>
+
+</Project>

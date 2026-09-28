@@ -1,0 +1,27 @@
+# Build output
+bin/
+obj/
+[Bb]uild/
+[Dd]ist/
+publish/
+out/
+
+# Roslyn / .editorconfig caches
+*.cache
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+
+# NuGet
+*.nupkg
+.nuget/
+
+# Test results
+[Tt]est[Rr]esults/
