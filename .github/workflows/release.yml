@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore CAD_ET_HANS.sln
+
+      - name: Publish
+        run: dotnet publish src/CAD_ET_HANS.App/CAD_ET_HANS.App.csproj -c Release -o publish-app
+
+      - name: Zip
+        run: Compress-Archive -Path publish-app\* -DestinationPath CAD_ET_HANS.zip
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: CAD_ET_HANS.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
